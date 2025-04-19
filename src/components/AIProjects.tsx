@@ -80,7 +80,7 @@ const AiMlSection = () => {
             </div>
             
             <div className="mt-8">
-              <Link to="/ai-ml">
+              <Link to="/ai-projects">
                 <Button 
                   size="lg" 
                   className="bg-accent hover:bg-accent/90 text-white"
@@ -103,9 +103,7 @@ const AiMlSection = () => {
                 </CardHeader>
                 <CardFooter>
                   <Link to={project.link} className="ml-auto">
-                    <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-white">
-                      View Project
-                    </Button>
+                    
                   </Link>
                 </CardFooter>
               </Card>
