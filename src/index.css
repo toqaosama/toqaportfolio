@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212 26% 83%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.tech-icon {
+  @apply w-16 h-16 mx-4 my-2 grayscale hover:grayscale-0 transition-all duration-300;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-400;
+}
+
+.project-card {
+  @apply relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-xl;
+}
+
+.project-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/70 opacity-0 transition-opacity duration-300;
+}
+
+.project-card:hover::before {
+  @apply opacity-100;
+}
+
+.project-card-content {
+  @apply absolute bottom-0 left-0 w-full p-6 transform translate-y-8 transition-transform duration-300;
+}
+
+.project-card:hover .project-card-content {
+  @apply translate-y-0;
+}
+
+.tag {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent;
+}
+
+.blur-load {
+  background-size: cover;
+  background-position: center;
+}
+
+.blur-load.loaded > img {
+  opacity: 1;
+}
+
+.blur-load > img {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
